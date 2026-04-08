@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Give | Oasis</title>
+  <link rel="icon" href="Oasisn.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Give Page Specific Styles */
+    :root {
+      --primary-blue: #0a3d62;
+      --secondary-green: #2ecc71;
+      --accent-blue: #3498db;
+      --light-bg: #f8f9fa;
+      --dark-bg: #1a1a2e;
+    }
+    
+    .give-hero {
+      height: 70vh;
+      background: linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), 
+                  url('sunday service.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 30px;
+      margin-top: -10px;
+    }
+    
+    .give-hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .give-hero-content p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .give-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    .scripture-section {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 40px;
+      background: var(--light-bg);
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+    
+    .scripture-text {
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--primary-blue);
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+    
+    .scripture-reference {
+      font-size: 1.1rem;
+      color: #666;
+      font-weight: 600;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 50px;
+      font-weight: 700;
+      position: relative;
+    }
+    
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--secondary-green);
+      margin: 15px auto;
+      border-radius: 2px;
+    }
+    
+    .giving-intro {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto 50px;
+      line-height: 1.7;
+    }
+    
+    /* Giving Methods */
+    .giving-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    
+    .method-card {
+      background: white;
+      border-radius: 15px;
+      padding: 35px 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+    }
+    
+    .method-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+    
+    .method-icon {
+      font-size: 3rem;
+      color: var(--secondary-green);
+      margin-bottom: 20px;
+      height: 80px;
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(46, 204, 113, 0.1);
+      border-radius: 50%;
+    }
+    
+    .method-card h3 {
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    
+    .method-card p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    
+    .method-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--secondary-green);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .method-btn:hover {
+      background: #27ae60;
+      color: white;
+    }
+    
+    /* Bank Accounts Section */
+    .accounts-section {
+      background: var(--light-bg);
+      padding: 60px 20px;
+      border-radius: 15px;
+      margin-top: 30px;
+    }
+    
+    .accounts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .account-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 2px solid transparent;
+    }
+    
+    .account-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--secondary-green);
+    }
+    
+    .bank-logo {
+      height: 60px;
+      margin-bottom: 20px;
+      object-fit: contain;
+    }
+    
+    .account-card h3 {
+      font-size: 1.4rem;
+      color: var(--primary-blue);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    
+    .account-type {
+      display: inline-block;
+      background: var(--accent-blue);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    .account-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin: 20px 0;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      width: 100%;
+      word-break: break-all;
+      font-family: 'Courier New', monospace;
+    }
+    
+    .account-details {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+      width: 100%;
+    }
+    
+    .account-details strong {
+      color: var(--primary-blue);
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .copy-btn {
+      padding: 12px 30px;
+      background: var(--secondary-green);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      width: 100%;
+      margin-top: auto;
+    }
+    
+    .copy-btn:hover {
+      background: #27ae60;
+    }
+    
+    .copy-btn.copied {
+      background: #17a2b8;
+    }
+    
+    /* Giving Principles */
+    .principles {
+      margin: 80px 0;
+      padding: 60px 0;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, #1a5276 100%);
+      color: white;
+      border-radius: 15px;
+    }
+    
+    .principles-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .principle-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .principle-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--secondary-green);
+    }
+    
+    .principle-card p {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+    }
+    
+    /* CTA Section */
+    .give-cta {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(rgba(46, 204, 113, 0.9), rgba(39, 174, 96, 0.9));
+      color: white;
+      border-radius: 15px;
+      margin-top: 60px;
+    }
+    
+    .give-cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    
+    .give-cta p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .cta-btn {
+      padding: 15px 40px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-btn.primary {
+      background: white;
+      color: var(--secondary-green);
+    }
+    
+    .cta-btn.primary:hover {
+      background: var(--primary-blue);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    .cta-btn.secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .cta-btn.secondary:hover {
+      background: white;
+      color: var(--secondary-green);
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .give-hero {
+        height: 50vh;
+        margin-top: 60px;
+      }
+      
+      .give-hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .scripture-text {
+        font-size: 1.2rem;
+      }
+      
+      .giving-methods {
+        grid-template-columns: 1fr;
+      }
+      
+      .accounts {
+        grid-template-columns: 1fr;
+      }
+      
+      .account-number {
+        font-size: 1.5rem;
+      }
+      
+      .principles-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+      }
+      
+      .method-card,
+      .account-card {
+        padding: 25px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .give-hero-content h1 {
+        font-size: 2rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .account-number {
+        font-size: 1.3rem;
+        padding: 10px;
+      }
+      
+      .give-cta h2 {
+        font-size: 2rem;
+      }
+    }
+    
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <img src="img/Oasisn.png" alt="Oasis logo">
+        </div>
+        
+        <button class="menu-toggle" id="menuToggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="give.html">Give</a></li>
+            <li><a href="bulletin.html">Bulletin</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Give Hero Section -->
+<section class="give-hero">
+  <div class="give-hero-content">
+    <h1>Generous Giving</h1>
+    <p>Partner with us in advancing God's Kingdom through your cheerful giving</p>
+  </div>
+</section>
+
+<div class="give-container">
+  <!-- Scripture Section -->
+  <section class="scripture-section fade-in">
+    <p class="scripture-text">
+      "Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."
+    </p>
+    <p class="scripture-reference">2 Corinthians 9:7 (NIV)</p>
+  </section>
+
+  <!-- Giving Introduction -->
+  <section class="giving-intro fade-in">
+    <p>
+      At Oasis of Hope Worship Centre, we believe that giving is an act of worship and an expression of our faith. 
+      Your generous contributions enable us to spread the Gospel, support our community, and fulfill our mission of raising Kings and Priests.
+    </p>
+  </section>
+
+  <!-- Ways to Give -->
+  <h2 class="section-title fade-in">Ways to Give</h2>
+  
+  <div class="giving-methods">
+    <div class="method-card fade-in">
+      <div class="method-icon">
+        <i class="fas fa-university"></i>
+      </div>
+      <h3>Bank Transfer</h3>
+      <p>Make direct transfers to our bank accounts. Secure and convenient for regular giving.</p>
+      <a href="#bank-accounts" class="method-btn">View Accounts</a>
+    </div>
+    
+    <div class="method-card fade-in" style="animation-delay: 0.2s;">
+      <div class="method-icon">
+        <i class="fas fa-hand-holding-usd"></i>
+      </div>
+      <h3>Sunday Offering</h3>
+      <p>Join us in person for worship and place your offering in the collection basket during service.</p>
+      <a href="index.html#services" class="method-btn">Service Times</a>
+    </div>
+    
+    <div class="method-card fade-in" style="animation-delay: 0.4s;">
+      <div class="method-icon">
+        <i class="fas fa-mobile-alt"></i>
+      </div>
+      <h3>Online Giving</h3>
+      <p>Coming Soon! We're working on secure online payment options for your convenience.</p>
+      <button class="method-btn" onclick="alert('Online giving coming soon!')">Notify Me</button>
+    </div>
+  </div>
+
+  <!-- Bank Accounts -->
+  <section class="accounts-section" id="bank-accounts">
+    <h2 class="section-title fade-in">Bank Account Details</h2>
+    <p class="giving-intro fade-in">You can give through any of these bank accounts. Click to copy account numbers.</p>
+    
+    <div class="accounts">
+      <!-- Account 1: Tithe & Offering NGN -->
+      <div class="account-card fade-in">
+        <img src="Fidelity-Bank-Nigeria-Logo.png" 
+             alt="Fidelity Bank Logo" class="bank-logo">
+        <h3>Tithe & Offering</h3>
+        <span class="account-type">NGN Account</span>
+        <div class="account-number" id="acc1">6060 175 301</div>
+        <div class="account-details">
+          <strong>Bank:</strong> Fidelity Bank Plc
+          <strong>Account Name:</strong> Oasis of Hope Worship Centre
+        </div>
+        <button class="copy-btn" onclick="copyToClipboard('acc1', this)">Copy Account Number</button>
+      </div>
+
+      <!-- Account 2: Tithe & Offering USD -->
+      <div class="account-card fade-in" style="animation-delay: 0.2s;">
+        <img src="United-Bank-for-Africa-Logo.png" 
+             alt="UBA Bank Logo" class="bank-logo">
+        <h3>Tithe & Offering</h3>
+        <span class="account-type">USD Account</span>
+        <div class="account-number" id="acc2">1027 106 658</div>
+        <div class="account-details">
+          <strong>Bank:</strong> United Bank for Africa (UBA)
+          <strong>Account Name:</strong> Oasis of Hope Worship Centre
+        </div>
+        <button class="copy-btn" onclick="copyToClipboard('acc2', this)">Copy Account Number</button>
+      </div>
+
+      <!-- Account 3: Tithe & Offering NGN -->
+      <div class="account-card fade-in" style="animation-delay: 0.4s;">
+        <img src="Eco-Bank-Uganda-Logo.png" 
+             alt="Ecobank Logo" class="bank-logo">
+        <h3>Tithe & Offering</h3>
+        <span class="account-type">NGN Account</span>
+        <div class="account-number" id="acc3">2961 219 881</div>
+        <div class="account-details">
+          <strong>Bank:</strong> Ecobank Nigeria
+          <strong>Account Name:</strong> Oasis of Hope Worship Centre
+        </div>
+        <button class="copy-btn" onclick="copyToClipboard('acc3', this)">Copy Account Number</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Biblical Principles of Giving -->
+  <section class="principles fade-in">
+    <div class="principles-container">
+      <h2 class="section-title" style="color: white;">Biblical Principles of Giving</h2>
+      
+      <div class="principles-grid">
+        <div class="principle-card">
+          <h4><i class="fas fa-heart"></i> Cheerfully</h4>
+          <p>God loves a cheerful giver. Give with joy and gratitude in your heart.</p>
+        </div>
+        
+        <div class="principle-card">
+          <h4><i class="fas fa-seedling"></i> Proportionately</h4>
+          <p>Give according to how God has blessed you and as you have purposed in your heart.</p>
+        </div>
+        
+        <div class="principle-card">
+          <h4><i class="fas fa-pray"></i> Worshipfully</h4>
+          <p>Giving is an act of worship, acknowledging God as the source of all blessings.</p>
+        </div>
+        
+        <div class="principle-card">
+          <h4><i class="fas fa-handshake"></i> Generously</h4>
+          <p>The measure you use for others will be measured back to you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="give-cta fade-in">
+    <h2>Need Help or Have Questions?</h2>
+    <p>Our finance team is available to assist you with any questions about giving, tithing, or offerings.</p>
+    
+    <div class="cta-buttons">
+      <a href="contact.html" class="cta-btn primary">Contact Us</a>
+      <a href="about.html" class="cta-btn secondary">Learn More About Us</a>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Church Info -->
+    <div class="footer-box">
+      <h3>Oasis of Hope Worship Centre</h3>
+      <p>
+        Raising a Kingdom of Kings and Priests.<br>
+        A place of worship, love, and transformation.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-box">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="give.html">Give</a></li>
+      </ul>
+    </div>
+
+    <!-- Service Times -->
+    <div class="footer-box">
+      <h4>Service Times</h4>
+      <p>Sunday Service: 7:30 AM & 9:00 AM</p>
+      <p>Midweek Service: Wednesday 6:00 PM</p>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-box">
+      <h4>Contact Us</h4>
+      <p>📍 Lagos, Nigeria</p>
+      <p>📞 +234 813 604 8277</p>
+      <p>✉️ info@ofhwc.org</p>
+    </div>
+  </div>
+
+  <!-- Bottom Footer -->
+  <div class="footer-bottom">
+    <p>&copy; 2026 Oasis of Hope Worship Centre. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Copy to Clipboard Function
+  function copyToClipboard(id, button) {
+    const text = document.getElementById(id).textContent.trim();
+    const tempInput = document.createElement('input');
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    tempInput.setSelectionRange(0, 99999);
+    
+    try {
+      const successful = document.execCommand('copy');
+      if (successful) {
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        
+        // Show notification
+        showNotification('Account number copied to clipboard!');
+        
+        setTimeout(() => {
+          button.textContent = 'Copy Account Number';
+          button.classList.remove('copied');
+        }, 2000);
+      }
+    } catch (err) {
+      console.error('Copy failed:', err);
+      alert('Copy failed. Please copy manually: ' + text);
+    }
+    
+    document.body.removeChild(tempInput);
+  }
+  
+  // Show Notification
+  function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      background: #2ecc71;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      z-index: 10000;
+      font-weight: 600;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s;
+    `;
+    
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 3000);
+  }
+  
+  // Add CSS for notification animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+  `;
+  document.head.appendChild(style);
+  
+  // Mobile Menu Toggle (same as other pages)
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  const navbar = document.getElementById('navbar');
+  
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+    
+    const navItems = navLinks.querySelectorAll('a');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+  }
+  
+  // Navbar Scroll Effect
+  window.addEventListener('scroll', () => {
+    if (navbar) {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+  });
+  
+  // Animation on scroll
+  document.addEventListener('DOMContentLoaded', function() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    fadeElements.forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  });
+</script>
+<script src="script.js"></script>
+</body>
+</html>
