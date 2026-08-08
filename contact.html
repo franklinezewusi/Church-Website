@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Oasis of Hope Worship Centre</title>
+  <link rel="icon" href="img/Oasisn.png" type="image/png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ========================================
+       CONTACT PAGE - OASIS COLORS
+       Emerald Green + Royal Blue + White
+       ======================================== */
+
+    :root {
+      --emerald: #2ecc71;
+      --emerald-dark: #27ae60;
+      --emerald-light: #82e0aa;
+      --emerald-glow: rgba(46, 204, 113, 0.3);
+      
+      --royal: #0a3d62;
+      --royal-light: #1a5276;
+      --royal-dark: #062338;
+      
+      --white: #ffffff;
+      --cream: #f0f7f4;
+      --gray: #6B7280;
+      --gray-light: #E5E7EB;
+      
+      --gradient-hero: linear-gradient(135deg, rgba(10, 61, 98, 0.88), rgba(6, 35, 56, 0.75));
+      --gradient-dark: linear-gradient(135deg, #0a3d62, #062338);
+      --shadow-glow: 0 8px 40px rgba(46, 204, 113, 0.25);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    /* ---------- CONTACT HERO ---------- */
+    .contact-hero {
+      min-height: 60vh;
+      background: 
+        var(--gradient-hero),
+        url('img/contact.jpg') no-repeat center center / cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 20px 60px;
+    }
+
+    .contact-hero-content {
+      max-width: 700px;
+    }
+
+    .contact-hero-tag {
+      display: inline-block;
+      background: var(--emerald);
+      color: var(--white);
+      padding: 6px 20px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .contact-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      color: var(--white);
+      margin-bottom: 15px;
+    }
+
+    .contact-hero p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.2rem;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ---------- CONTACT SECTION ---------- */
+    .contact-section {
+      padding: 80px 20px;
+      background: var(--cream);
+    }
+
+    .contact-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    /* Contact Info */
+    .contact-info h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--royal);
+      margin-bottom: 25px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 25px;
+      padding: 20px;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .contact-info-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--emerald-light);
+    }
+
+    .contact-info-item .icon {
+      width: 50px;
+      height: 50px;
+      flex-shrink: 0;
+      background: var(--emerald-glow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--emerald);
+      transition: var(--transition);
+    }
+
+    .contact-info-item:hover .icon {
+      background: var(--emerald);
+      color: var(--white);
+    }
+
+    .contact-info-item .text strong {
+      display: block;
+      color: var(--royal);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .contact-info-item .text p {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .contact-note {
+      margin-top: 30px;
+      padding: 25px;
+      background: var(--royal);
+      border-radius: 12px;
+      color: var(--white);
+      text-align: center;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .contact-note i {
+      color: var(--emerald);
+      margin-right: 8px;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: var(--white);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-form h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      color: var(--royal);
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      border: 2px solid var(--gray-light);
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-family: var(--font-body);
+      transition: var(--transition);
+      background: var(--cream);
+      color: var(--royal);
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--gray);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--emerald);
+      box-shadow: 0 0 0 4px var(--emerald-glow);
+      background: var(--white);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form button {
+      background: var(--emerald);
+      color: var(--white);
+      border: none;
+      padding: 16px 34px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      width: 100%;
+      font-family: var(--font-body);
+    }
+
+    .contact-form button:hover {
+      background: var(--emerald-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .contact-form button i {
+      margin-right: 10px;
+    }
+
+    /* ---------- MAP SECTION ---------- */
+    .map-section {
+      padding: 80px 20px;
+      background: var(--royal);
+    }
+
+    .map-section h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .map-section .subtitle {
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .map-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 3px solid var(--emerald);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 450px;
+      border: 0;
+      display: block;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 992px) {
+      .contact-section .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .contact-hero p {
+        font-size: 1rem;
+      }
+
+      .contact-form {
+        padding: 25px;
+      }
+
+      .contact-info-item {
+        padding: 15px;
+      }
+
+      .map-container iframe {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-info-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .contact-form {
+        padding: 20px;
+      }
+
+      .contact-note {
+        padding: 18px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <img src="img/Oasisn.png" alt="Oasis logo">
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="give.html">Give</a></li>
+      <li><a href="bulletin.html">Bulletin</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== CONTACT HERO ===== -->
+<section class="contact-hero">
+  <div class="contact-hero-content">
+    <span class="contact-hero-tag">Get in Touch</span>
+    <h1>Contact Us</h1>
+    <p>We would love to hear from you. Reach out to us anytime — we're here to pray, listen, and support you.</p>
+  </div>
+</section>
+
+<!-- ===== CONTACT SECTION ===== -->
+<section class="contact-section reveal">
+  <div class="container">
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h2>Get In Touch</h2>
+
+      <div class="contact-info-item">
+        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="text">
+          <strong>Address</strong>
+          <p>Cincia Oil, Subol Bus/stop, Ikotun, Lagos, Nigeria</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="icon"><i class="fas fa-phone-alt"></i></div>
+        <div class="text">
+          <strong>Phone</strong>
+          <p>+234 813 604 8277</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="icon"><i class="fas fa-envelope"></i></div>
+        <div class="text">
+          <strong>Email</strong>
+          <p>info@ofhwc.org</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="icon"><i class="fas fa-clock"></i></div>
+        <div class="text">
+          <strong>Service Times</strong>
+          <p>Sunday: 7:30 AM &amp; 9:30 AM<br>Wednesday: 6:00 PM</p>
+        </div>
+      </div>
+
+      <div class="contact-note">
+        <i class="fas fa-praying-hands"></i>
+        You can reach out to us anytime. We are always ready to pray, listen, and support you.
+      </div>
+
+      <!-- Social Links -->
+      <div style="margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap;">
+        <a href="https://www.youtube.com/@oasisofhopeng" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--royal); color: var(--white); border-radius: 50px; text-decoration: none; font-weight: 600; transition: var(--transition); font-size: 0.9rem;">
+          <i class="fab fa-youtube"></i> YouTube
+        </a>
+        <a href="https://forms.gle/u7d4YY9fdfRi7J6m8" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--emerald); color: var(--white); border-radius: 50px; text-decoration: none; font-weight: 600; transition: var(--transition); font-size: 0.9rem;">
+          <i class="fas fa-user-plus"></i> Become a Member
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h2><i class="fas fa-paper-plane" style="color: var(--emerald); margin-right: 10px;"></i> Send Us a Message</h2>
+
+      <form action="https://formsubmit.co/info@ofhwc.org" method="POST">
+        <input type="hidden" name="_subject" value="New Contact Form Submission">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="subject" placeholder="Subject">
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+
+        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== MAP SECTION ===== -->
+<section class="map-section reveal">
+  <h2>📍 Our Location</h2>
+  <p class="subtitle">Come worship with us — we'd love to welcome you in person!</p>
+  <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31709.99420811706!2d3.244088513511096!3d6.553304963145312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8f004627ec85%3A0x524301303b3d5afd!2sCincia%20Oil!5e0!3m2!1sen!2sng!4v1767113159841!5m2!1sen!2sng"
+      width="600" 
+      height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy"
+      title="Oasis of Hope Worship Centre Location">
+    </iframe>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-box">
+      <h3>Oasis of Hope Worship Centre</h3>
+      <p>
+        Raising a Kingdom of Kings and Priests.<br>
+        A place of worship, love, and transformation.
+      </p>
+    </div>
+    <div class="footer-box">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="give.html">Give</a></li>
+        <li><a href="bulletin.html">Bulletin</a></li>
+      </ul>
+    </div>
+    <div class="footer-box">
+      <h4>Service Times</h4>
+      <p>Sunday Service: 7:30 AM &amp; 9:30 AM</p>
+      <p>Midweek Service: Wednesday 6:00 PM</p>
+    </div>
+    <div class="footer-box">
+      <h4>Contact Us</h4>
+      <p>📍 Lagos, Nigeria</p>
+      <p>📞 +234 813 604 8277</p>
+      <p>✉️ info@ofhwc.org</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Oasis of Hope Worship Centre. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oasis of Hope Worship Centre</title>
+  <link rel="icon" href="img/Oasisn.png" type="image/png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ========================================
+       OASIS HOMEPAGE - COMPLETE STYLES
+       Emerald Green + Royal Blue + White
+       ======================================== */
+
+    :root {
+      --emerald: #2ecc71;
+      --emerald-dark: #27ae60;
+      --emerald-light: #82e0aa;
+      --emerald-glow: rgba(46, 204, 113, 0.3);
+      
+      --royal: #0a3d62;
+      --royal-light: #1a5276;
+      --royal-dark: #062338;
+      
+      --white: #ffffff;
+      --cream: #f0f7f4;
+      --gray: #6B7280;
+      --gray-light: #E5E7EB;
+      
+      --gradient-hero: linear-gradient(135deg, rgba(10, 61, 98, 0.88), rgba(6, 35, 56, 0.75));
+      --gradient-dark: linear-gradient(135deg, #0a3d62, #062338);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+      --shadow-glow: 0 8px 40px rgba(46, 204, 113, 0.25);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      min-height: 100vh;
+      background: 
+        var(--gradient-hero),
+        url('img/home.jpg') no-repeat center center / cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 20px 60px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--emerald);
+      color: var(--white);
+      padding: 6px 20px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 .highlight {
+      color: var(--emerald);
+      position: relative;
+    }
+
+    .hero h1 .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--emerald);
+      border-radius: 2px;
+      opacity: 0.4;
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 35px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons .btn-primary {
+      background: var(--emerald);
+      color: var(--white);
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 1rem;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .hero-buttons .btn-primary:hover {
+      background: var(--emerald-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(46, 204, 113, 0.4);
+    }
+
+    .hero-buttons .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      padding: 16px 40px;
+      border-radius: 50px;
+      border: 2px solid var(--white);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+
+    .hero-buttons .btn-secondary:hover {
+      background: var(--white);
+      color: var(--royal);
+      transform: translateY(-2px);
+    }
+
+    /* ---------- PILLARS ---------- */
+    .pillars {
+      padding: 80px 20px;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .pillars h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--royal);
+      margin-bottom: 15px;
+    }
+
+    .pillars-subtitle {
+      color: var(--gray);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 50px;
+      line-height: 1.7;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .pillar-card {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pillar-icon {
+      font-size: 3rem;
+      color: var(--emerald);
+      margin-bottom: 20px;
+    }
+
+    .pillar-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: var(--royal);
+      margin-bottom: 10px;
+    }
+
+    .pillar-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ---------- OASIS BIBLE SCHOOL ---------- */
+    .bible-school {
+      padding: 80px 20px;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .bible-school .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .bible-school-tag {
+      display: inline-block;
+      background: var(--emerald);
+      color: var(--white);
+      padding: 4px 20px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .bible-school h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--royal);
+      margin-bottom: 15px;
+    }
+
+    .bible-school .subtitle {
+      color: var(--gray);
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto 50px;
+      line-height: 1.7;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .course-card {
+      background: var(--cream);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.04);
+      text-align: left;
+    }
+
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .course-card .course-image {
+      height: 200px;
+      overflow: hidden;
+      background: var(--royal);
+      position: relative;
+    }
+
+    .course-card .course-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .course-card:hover .course-image img {
+      transform: scale(1.05);
+    }
+
+    .course-card .course-body {
+      padding: 25px 25px 30px;
+    }
+
+    .course-level {
+      display: inline-block;
+      background: var(--emerald);
+      color: var(--white);
+      padding: 2px 12px;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .course-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--royal);
+      margin-bottom: 8px;
+    }
+
+    .course-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .course-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: var(--emerald);
+      color: var(--white);
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .course-btn:hover {
+      background: var(--emerald-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* ---------- WELCOME ---------- */
+    .welcome {
+      padding: 100px 20px;
+      background: var(--cream);
+    }
+
+    .welcome-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .welcome-text {
+      flex: 1;
+    }
+
+    .welcome-text .tag {
+      display: inline-block;
+      background: var(--emerald);
+      color: var(--white);
+      padding: 4px 16px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .welcome-text h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      color: var(--royal);
+      margin-bottom: 20px;
+    }
+
+    .welcome-text h2 span {
+      color: var(--emerald);
+    }
+
+    .welcome-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 30px;
+    }
+
+    .welcome-image {
+      flex: 1;
+    }
+
+    .welcome-image img {
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+    }
+
+    .welcome-image img:hover {
+      transform: scale(1.01);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 14px 34px;
+      border-radius: 50px;
+      border: 2px solid var(--royal);
+      color: var(--royal);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      background: var(--royal);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ---------- PASTOR ---------- */
+    .pastor-section {
+      padding: 80px 20px;
+      background: var(--royal);
+      color: var(--white);
+    }
+
+    .pastor-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .pastor-image {
+      flex: 0 0 300px;
+    }
+
+    .pastor-image img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      border: 4px solid var(--emerald);
+    }
+
+    .pastor-info {
+      flex: 1;
+    }
+
+    .pastor-info .tag {
+      display: inline-block;
+      background: var(--emerald);
+      color: var(--white);
+      padding: 4px 16px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .pastor-info h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      color: var(--emerald);
+      margin-bottom: 15px;
+    }
+
+    .pastor-info p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .pastor-info .btn-read-more {
+      background: var(--emerald);
+      color: var(--white);
+      padding: 14px 34px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .pastor-info .btn-read-more:hover {
+      background: var(--emerald-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* ---------- MINISTRIES ---------- */
+    .ministries-section {
+      padding: 80px 20px;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .ministries-section h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--royal);
+      margin-bottom: 15px;
+    }
+
+    .ministries-section .subtitle {
+      color: var(--gray);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 50px;
+      line-height: 1.7;
+    }
+
+    .ministries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .ministry-item {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .ministry-item:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .ministry-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .ministry-item .content {
+      padding: 25px;
+      text-align: left;
+    }
+
+    .ministry-item h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--royal);
+      margin-bottom: 8px;
+    }
+
+    .ministry-item p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ---------- OUR PROGRAMS ---------- */
+    .programs-section {
+      padding: 80px 20px;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .programs-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .programs-tag {
+      display: inline-block;
+      background: var(--emerald);
+      color: var(--white);
+      padding: 4px 20px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .programs-section h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--royal);
+      margin-bottom: 15px;
+    }
+
+    .programs-section .subtitle {
+      color: var(--gray);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 50px;
+      line-height: 1.7;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .program-card {
+      background: var(--cream);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.04);
+      text-align: left;
+    }
+
+    .program-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .program-card .program-image {
+      height: 200px;
+      overflow: hidden;
+      background: var(--royal);
+      position: relative;
+    }
+
+    .program-card .program-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .program-card:hover .program-image img {
+      transform: scale(1.05);
+    }
+
+    .program-card .program-body {
+      padding: 25px 25px 30px;
+    }
+
+    .program-day {
+      display: inline-block;
+      background: var(--royal);
+      color: var(--white);
+      padding: 2px 12px;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .program-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--royal);
+      margin-bottom: 8px;
+    }
+
+    .program-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .program-card .program-time {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--emerald);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .program-card .program-time i {
+      font-size: 0.9rem;
+    }
+
+    /* Collapsible Programs */
+    .program-card.collapsible {
+      display: none;
+    }
+
+    .program-card.collapsible.visible {
+      display: block;
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* View All Button */
+    .view-all-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 36px;
+      background: transparent;
+      color: var(--royal);
+      border: 2px solid var(--royal);
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: var(--font-body);
+      margin-top: 40px;
+    }
+
+    .view-all-btn:hover {
+      background: var(--royal);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .view-all-btn i {
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .view-all-btn.active i {
+      transform: rotate(180deg);
+    }
+
+    .view-all-btn.active {
+      background: var(--royal);
+      color: var(--white);
+    }
+
+    /* ---------- MINISTRY BOOKS ---------- */
+    .books-section {
+      padding: 80px 20px;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .books-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .books-tag {
+      display: inline-block;
+      background: var(--emerald);
+      color: var(--white);
+      padding: 4px 20px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .books-section h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--royal);
+      margin-bottom: 15px;
+    }
+
+    .books-section .subtitle {
+      color: var(--gray);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 50px;
+      line-height: 1.7;
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+
+    .book-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.04);
+      text-align: center;
+      padding: 30px 20px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+    }
+
+    .book-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .book-card .book-cover {
+      width: 140px;
+      height: 190px;
+      margin: 0 auto 18px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: var(--royal);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .book-card .book-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .book-card:hover .book-cover img {
+      transform: scale(1.03);
+    }
+
+    .book-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--royal);
+      margin-bottom: 5px;
+    }
+
+    .book-card p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+
+    .book-card .book-btn {
+      display: inline-block;
+      padding: 8px 24px;
+      background: transparent;
+      color: var(--emerald);
+      border: 2px solid var(--emerald);
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      margin-top: auto;
+    }
+
+    .book-card .book-btn:hover {
+      background: var(--emerald);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* ---------- NEWSLETTER ---------- */
+    .cta-newsletter {
+      padding: 80px 20px;
+      background: var(--gradient-dark);
+      text-align: center;
+      color: var(--white);
+    }
+
+    .cta-newsletter h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      margin-bottom: 15px;
+    }
+
+    .cta-newsletter p {
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+      line-height: 1.7;
+    }
+
+    .newsletter-form {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 250px;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-family: var(--font-body);
+      outline: none;
+    }
+
+    .newsletter-form input:focus {
+      box-shadow: 0 0 0 4px var(--emerald-glow);
+    }
+
+    .newsletter-form button {
+      padding: 14px 34px;
+      background: var(--emerald);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .newsletter-form button:hover {
+      background: var(--emerald-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 992px) {
+      .pastor-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .pastor-image {
+        flex: 0 0 auto;
+        width: 250px;
+        margin: 0 auto;
+      }
+
+      .pastor-image img {
+        height: 300px;
+      }
+
+      .welcome-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-buttons .btn-primary,
+      .hero-buttons .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .programs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .newsletter-form input {
+        width: 100%;
+        min-width: unset;
+      }
+
+      .newsletter-form button {
+        width: 100%;
+      }
+
+      .course-card .course-image,
+      .program-card .program-image {
+        height: 180px;
+      }
+
+      .book-card .book-cover {
+        width: 120px;
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .books-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .book-card {
+        padding: 20px 12px 18px;
+      }
+
+      .book-card .book-cover {
+        width: 100px;
+        height: 140px;
+      }
+
+      .book-card h3 {
+        font-size: 0.95rem;
+      }
+
+      .book-card p {
+        font-size: 0.8rem;
+      }
+
+      .book-card .book-btn {
+        font-size: 0.75rem;
+        padding: 6px 16px;
+      }
+
+      .course-card .course-body,
+      .program-card .program-body {
+        padding: 20px;
+      }
+
+      .pastor-image {
+        width: 200px;
+      }
+
+      .pastor-image img {
+        height: 250px;
+      }
+
+      .view-all-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <img src="img/Oasisn.png" alt="Oasis logo">
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="give.html">Give</a></li>
+      <li><a href="bulletin.html">Bulletin</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-tag">Grace & Glory - 2026</span>
+    <h1>
+      Raising a Kingdom of <br>
+      <span class="highlight">Kings</span> and <span class="highlight">Priests</span>
+    </h1><br>
+    <div class="hero-buttons">
+      <a href="https://forms.gle/u7d4YY9fdfRi7J6m8" class="btn-primary" target="_blank">Become a Member</a>
+      <a href="https://www.youtube.com/@oasisofhopeng" class="btn-secondary" target="_blank">Watch Live</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PILLARS ===== -->
+<section class="pillars reveal">
+  <h2>Our Kingdom Mandate</h2>
+  <p class="pillars-subtitle">We are committed to raising a generation of Kingdom ambassadors who walk in dominion, purpose, and truth.</p>
+  <div class="pillars-grid stagger-children">
+    <div class="pillar-card">
+      <div class="pillar-icon">👑</div>
+      <h3>Rebirth</h3>
+      <p>New life in Christ, transformation of heart, and walking in the fullness of God's purpose.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">🕊️</div>
+      <h3>Priesthood</h3>
+      <p>Standing as intercessors, ministers of the Gospel, and ambassadors of God's Kingdom.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">✨</div>
+      <h3>Transformation</h3>
+      <p>Becoming who God called us to be, walking in dominion, and transforming our world.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OASIS BIBLE SCHOOL ===== -->
+<section class="bible-school reveal">
+  <div class="container">
+    <span class="bible-school-tag">Equipping Leaders</span>
+    <h2>Oasis Bible School</h2>
+    <p class="subtitle">Deepen your understanding of God's Word and develop kingdom leadership skills through our comprehensive Bible School courses.</p>
+
+    <div class="courses-grid stagger-children">
+
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=600&h=400&fit=crop" alt="Maturity Bible Course">
+        </div>
+        <div class="course-body">
+          <span class="course-level">Level 1</span>
+          <h3>Maturity Bible Course</h3>
+          <p>Foundational truths for spiritual growth and maturity in Christ. Perfect for new believers and those seeking a stronger foundation.</p>
+          <a href="https://your-google-link-1.com" class="course-btn" target="_blank">
+            Enroll Now <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&h=400&fit=crop" alt="Leadership Bible Course">
+        </div>
+        <div class="course-body">
+          <span class="course-level">Level 2</span>
+          <h3>Leadership Bible Course</h3>
+          <p>Developing godly leadership skills for kingdom impact. Learn to lead with integrity, vision, and purpose.</p>
+          <a href="https://your-google-link-2.com" class="course-btn" target="_blank">
+            Enroll Now <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop" alt="Leadership Bible Course 2">
+        </div>
+        <div class="course-body">
+          <span class="course-level">Level 3</span>
+          <h3>Leadership Bible Course 2</h3>
+          <p>Advanced leadership principles for seasoned leaders. Take your leadership to the next level.</p>
+          <a href="https://your-google-link-3.com" class="course-btn" target="_blank">
+            Enroll Now <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== WELCOME ===== -->
+<section class="welcome reveal">
+  <div class="welcome-container">
+    <div class="welcome-text">
+      <span class="tag">Welcome</span>
+      <h2>Welcome to <span>Oasis of Hope Worship Centre</span></h2>
+      <p>
+        Oasis of Hope Worship Centre is a Christ-centered ministry committed to raising Kings and Priests
+        who walk in dominion, purpose, and truth. Through the Word, worship, and fellowship,
+        we are building a generation of Kingdom ambassadors.
+      </p>
+      <a href="about.html" class="btn-outline">Learn More About Us</a>
+    </div>
+    <div class="welcome-image">
+      <img src="img/welcome.jpg" alt="Oasis Worship">
+    </div>
+  </div>
+</section>
+
+<!-- ===== PASTOR ===== -->
+<section class="pastor-section reveal">
+  <div class="pastor-container">
+    <div class="pastor-image">
+      <img src="img/Personal.jpg" alt="Pastor Kayode Oladimeji">
+    </div>
+    <div class="pastor-info">
+      <span class="tag">Point Man</span>
+      <h2>Our Lead Pastor</h2>
+      <p>
+        <strong>Pastor Kayode Oladimeji</strong> is the senior pastor of Oasis of Hope Worship Centre, a dynamic ministry based upon the word of God. He has a mandate to raise a Kingdom of Kings and Priests. He believes in bringing people from nowhere to where God wants them to be.
+      </p>
+      <p>
+        He has served in various capacities of leadership with a proven testimony of stewardship and integrity. A major speaker in conferences and a prolific writer.
+      </p>
+      <a href="https://kayodejoshuaoladimeji.com" class="btn-read-more" target="_blank">Read More</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MINISTRIES ===== -->
+<section class="ministries-section reveal">
+  <h2>Our Communities</h2>
+  <p class="subtitle">We are committed to raising lives and building strong believers through our various ministries.</p>
+  <div class="ministries-grid stagger-children">
+    <div class="ministry-item">
+      <img src="img/men.jpg" alt="Men Ministry">
+      <div class="content">
+        <h3>Men Ministry</h3>
+        <p>Building men of character, faith, and leaders of their generation.</p>
+      </div>
+    </div>
+    <div class="ministry-item">
+      <img src="img/women.jpg" alt="Women Ministry">
+      <div class="content">
+        <h3>Women Ministry</h3>
+        <p>Empowering women to live purpose-driven lives.</p>
+      </div>
+    </div>
+    <div class="ministry-item">
+      <img src="img/youth.jpg" alt="Youth Ministry">
+      <div class="content">
+        <h3>Youth Ministry</h3>
+        <p>Raising leading and godly leaders for the next generation.</p>
+      </div>
+    </div>
+    <div class="ministry-item">
+      <img src="img/children.jpg" alt="Children Ministry">
+      <div class="content">
+        <h3>Children Ministry</h3>
+        <p>Nurturing children in the knowledge and love of Christ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR PROGRAMS ===== -->
+<section class="programs-section reveal">
+  <div class="container">
+    <span class="programs-tag">Get Involved</span>
+    <h2>Our Programs</h2>
+    <p class="subtitle">Join us in these life-transforming programs designed to build your faith, connect you with others, and deepen your walk with God.</p>
+
+    <div class="programs-grid stagger-children" id="programsGrid">
+
+      <!-- Program 1: Always Visible -->
+      <div class="program-card">
+        <div class="program-image">
+          <img src="https://images.unsplash.com/photo-1511798616182-d7a4bd5b5e2f?w=600&h=400&fit=crop" alt="Sunday Service">
+        </div>
+        <div class="program-body">
+          <span class="program-day">Every Sunday</span>
+          <h3>Sunday Worship Service</h3>
+          <p>Powerful worship, inspiring messages, and a welcoming church family. Come experience God's presence.</p>
+          <span class="program-time"><i class="far fa-clock"></i> 7:30 AM &amp; 9:30 AM</span>
+        </div>
+      </div>
+
+      <!-- Program 2: Always Visible -->
+      <div class="program-card">
+        <div class="program-image">
+          <img src="https://images.unsplash.com/photo-1511649475669-e288648b2339?w=600&h=400&fit=crop" alt="Midweek Service">
+        </div>
+        <div class="program-body">
+          <span class="program-day">Every Wednesday</span>
+          <h3>Midweek Service</h3>
+          <p>Hour of Insight — a time of deep study, prayer, and fellowship in the Word of God.</p>
+          <span class="program-time"><i class="far fa-clock"></i> 6:00 PM</span>
+        </div>
+      </div>
+
+      <!-- Program 3: Collapsible -->
+      <div class="program-card collapsible" style="display: none;">
+        <div class="program-image">
+          <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&h=400&fit=crop" alt="Prayer Meeting">
+        </div>
+        <div class="program-body">
+          <span class="program-day">First Friday</span>
+          <h3>Night of Praise</h3>
+          <p>A powerful night of worship and praise as we thank God for bringing us into a new month.</p>
+          <span class="program-time"><i class="far fa-clock"></i> 6:00 PM</span>
+        </div>
+      </div>
+
+      <!-- Program 4: Collapsible -->
+      <div class="program-card collapsible" style="display: none;">
+        <div class="program-image">
+          <img src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=600&h=400&fit=crop" alt="Prayer Cells">
+        </div>
+        <div class="program-body">
+          <span class="program-day">Weekly</span>
+          <h3>Prayer Cells</h3>
+          <p>Find a prayer cell center closest to you and join us in fellowship, prayer, and community.</p>
+          <span class="program-time"><i class="fas fa-map-marker-alt"></i> Multiple Locations</span>
+        </div>
+      </div>
+
+      <!-- Program 5: Collapsible -->
+      <div class="program-card collapsible" style="display: none;">
+        <div class="program-image">
+          <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=600&h=400&fit=crop" alt="Bible Study">
+        </div>
+        <div class="program-body">
+          <span class="program-day">Every Tuesday</span>
+          <h3>Bible Study &amp; Fellowship</h3>
+          <p>Deep dive into God's Word with interactive Bible study and community fellowship.</p>
+          <span class="program-time"><i class="far fa-clock"></i> 5:30 PM</span>
+        </div>
+      </div>
+
+      <!-- Program 6: Collapsible -->
+      <div class="program-card collapsible" style="display: none;">
+        <div class="program-image">
+          <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&h=400&fit=crop" alt="Outreach">
+        </div>
+        <div class="program-body">
+          <span class="program-day">Monthly</span>
+          <h3>Community Outreach</h3>
+          <p>Sharing God's love through practical service, evangelism, and community engagement.</p>
+          <span class="program-time"><i class="fas fa-heart"></i> Every Last Saturday</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Toggle Button -->
+    <div>
+      <button id="viewAllBtn" class="view-all-btn" onclick="togglePrograms()">
+        <span id="btnText">View All Programs</span>
+        <i id="btnIcon" class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== MINISTRY BOOKS ===== -->
+<section class="books-section reveal">
+  <div class="container">
+    <span class="books-tag">Resources</span>
+    <h2>Ministry Books</h2>
+    <p class="subtitle">A library of wisdom designed to uplift your spirit and guide your journey. Explore books from Pastor Kayode Oladimeji.</p>
+
+    <div class="books-grid stagger-children">
+
+      <div class="book-card">
+        <div class="book-cover">
+          <img src="Don't pity me.png" alt="Don't pity me">
+        </div>
+        <h3>Don't Pity Me</h3>
+        <p>The biggest disease today is not HIV or cancer but rather the feeling of being unwanted, uncared for and deserted by everybody.</p>
+        <a href="https://kayodejoshuaoladimeji.com/product/1179/" class="book-btn" target="_blank">Learn More</a>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover">
+          <img src="why pastors must not be poor.png" alt="why pastors must not be poor">
+        </div>
+        <h3>Why Pastors Must Not Be Poor</h3>
+        <p>The joy of being a Pastor, the greatest asset of a Pastor in generating personal and ministerial needs</p>
+        <a href="https://kayodejoshuaoladimeji.com/product/why-pastor-must-not-be-poor/" class="book-btn" target="_blank">Learn More</a>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover">
+          <img src="Dare to be a lifter.png" alt="Dare to be a lifter">
+        </div>
+        <h3>Dare to Be a Lifter</h3>
+        <p> Lifters are those who choose not to be spectators but major players in the game of life.</p>
+        <a href="https://kayodejoshuaoladimeji.com/product/dare-to-be-a-lifter/" class="book-btn" target="_blank">Learn More</a>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover">
+          <img src="how to have.jpg" alt="how to have a successful christian journey">
+        </div>
+        <h3>How to Have a Successful Christian adventure against all odd</h3>
+        <p>Thriving in your Christian adventure in the face of overwhelming challenges.</p>
+        <a href="https://kayodejoshuaoladimeji.com/product/how-to-have-a-successful-christian-adventure-against-all-odd/" class="book-btn" target="_blank">Learn More</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="cta-newsletter reveal">
+  <h2>Join Our Community</h2>
+  <p>Subscribe to receive weekly updates on programs and ministry news. No spam. Unsubscribe anytime.</p>
+  <form class="newsletter-form" action="https://formsubmit.co/info@ofhwc.org" method="POST">
+    <input type="hidden" name="_subject" value="Newsletter Signup">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="email" name="email" placeholder="Enter your email address" required>
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-box">
+      <h3>Oasis of Hope Worship Centre</h3>
+      <p>
+        Raising a Kingdom of Kings and Priests.<br>
+        A place of worship, love, and transformation.
+      </p>
+    </div>
+    <div class="footer-box">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="give.html">Give</a></li>
+        <li><a href="bulletin.html">Bulletin</a></li>
+      </ul>
+    </div>
+    <div class="footer-box">
+      <h4>Service Times</h4>
+      <p>Sunday Service: 7:30 AM &amp; 9:30 AM</p>
+      <p>Midweek Service: Wednesday 6:00 PM</p>
+    </div>
+    <div class="footer-box">
+      <h4>Contact Us</h4>
+      <p>📍 Lagos, Nigeria</p>
+      <p>📞 +234 813 604 8277</p>
+      <p>✉️ info@ofhwc.org</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Oasis of Hope Worship Centre. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+<!-- ===== TOGGLE PROGRAMS SCRIPT ===== -->
+<script>
+function togglePrograms() {
+  const collapsibleItems = document.querySelectorAll('.program-card.collapsible');
+  const btn = document.getElementById('viewAllBtn');
+  const btnText = document.getElementById('btnText');
+  const btnIcon = document.getElementById('btnIcon');
+  
+  const allHidden = Array.from(collapsibleItems).every(item => 
+    item.style.display === 'none' || !item.classList.contains('visible')
+  );
+  
+  if (allHidden) {
+    collapsibleItems.forEach((item, index) => {
+      item.style.display = 'block';
+      setTimeout(() => {
+        item.classList.add('visible');
+      }, index * 100);
+    });
+    btnText.textContent = 'Show Less';
+    btnIcon.className = 'fas fa-chevron-up';
+    btn.classList.add('active');
+  } else {
+    collapsibleItems.forEach((item) => {
+      item.classList.remove('visible');
+      setTimeout(() => {
+        item.style.display = 'none';
+      }, 300);
+    });
+    btnText.textContent = 'View All Programs';
+    btnIcon.className = 'fas fa-chevron-down';
+    btn.classList.remove('active');
+  }
+}
+</script>
+
+</body>
+</html>

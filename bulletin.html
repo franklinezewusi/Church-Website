@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulletin | Oasis of Hope Worship Centre</title>
+  <link rel="icon" href="img/Oasisn.png" type="image/png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ========================================
+       BULLETIN PAGE - OASIS COLORS
+       Emerald Green + Royal Blue + White
+       ======================================== */
+
+    :root {
+      --emerald: #2ecc71;
+      --emerald-dark: #27ae60;
+      --emerald-light: #82e0aa;
+      --emerald-glow: rgba(46, 204, 113, 0.3);
+      
+      --royal: #0a3d62;
+      --royal-light: #1a5276;
+      --royal-dark: #062338;
+      
+      --white: #ffffff;
+      --cream: #f0f7f4;
+      --gray: #6B7280;
+      --gray-light: #E5E7EB;
+      
+      --gradient-hero: linear-gradient(135deg, rgba(10, 61, 98, 0.88), rgba(6, 35, 56, 0.75));
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+      --shadow-glow: 0 8px 40px rgba(46, 204, 113, 0.25);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    /* ---------- BULLETIN HERO ---------- */
+    .bulletin-hero {
+      min-height: 50vh;
+      background: 
+        var(--gradient-hero),
+        url('img/about.jpg') no-repeat center center / cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 20px 60px;
+    }
+
+    .bulletin-hero-content {
+      max-width: 700px;
+    }
+
+    .bulletin-hero-tag {
+      display: inline-block;
+      background: var(--emerald);
+      color: var(--white);
+      padding: 6px 20px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .bulletin-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      color: var(--white);
+      margin-bottom: 15px;
+    }
+
+    .bulletin-hero p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.2rem;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ---------- BULLETIN CONTENT ---------- */
+    .bulletin-content {
+      padding: 60px 20px;
+      background: var(--cream);
+    }
+
+    .bulletin-content .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+    }
+
+    /* ---------- ARCHIVE SIDEBAR ---------- */
+    .archive-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid transparent;
+      height: fit-content;
+    }
+
+    .archive-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--emerald-light);
+    }
+
+    .archive-card h2 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--royal);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .archive-card h2 i {
+      color: var(--emerald);
+    }
+
+    .bulletin-item {
+      padding: 16px 20px;
+      border: 2px solid var(--gray-light);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+      background: var(--white);
+      position: relative;
+    }
+
+    .bulletin-item:hover {
+      border-color: var(--emerald);
+      background: var(--emerald-glow);
+      transform: translateX(4px);
+    }
+
+    .bulletin-item.active {
+      border-color: var(--emerald);
+      background: var(--emerald-glow);
+      box-shadow: 0 0 0 3px var(--emerald-glow);
+    }
+
+    .bulletin-item strong {
+      display: block;
+      color: var(--royal);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .bulletin-item span {
+      font-size: 0.85rem;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    .bulletin-item .badge {
+      display: inline-block;
+      background: var(--emerald);
+      color: var(--white);
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 6px;
+    }
+
+    /* ---------- PREVIEW CARD ---------- */
+    .preview-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .preview-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--emerald-light);
+    }
+
+    .preview-card h2 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--royal);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .preview-card h2 i {
+      color: var(--emerald);
+    }
+
+    /* PDF Placeholder */
+    .pdf-placeholder {
+      width: 100%;
+      height: 520px;
+      border-radius: 12px;
+      border: 2px dashed var(--gray-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream);
+      padding: 30px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .pdf-placeholder i {
+      font-size: 4rem;
+      color: var(--emerald);
+      margin-bottom: 20px;
+    }
+
+    .pdf-placeholder h3 {
+      font-family: var(--font-heading);
+      color: var(--royal);
+      margin-bottom: 10px;
+    }
+
+    .pdf-placeholder p {
+      color: var(--gray);
+      max-width: 400px;
+      line-height: 1.7;
+    }
+
+    .pdf-placeholder p a {
+      color: var(--emerald);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .pdf-placeholder p a:hover {
+      text-decoration: underline;
+    }
+
+    /* PDF Iframe */
+    .preview-frame {
+      width: 100%;
+      height: 520px;
+      border-radius: 12px;
+      border: 1px solid var(--gray-light);
+      background: var(--white);
+      display: none;
+    }
+
+    /* Download Button */
+    .download-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
+      padding: 14px 32px;
+      background: var(--emerald);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: var(--transition);
+      font-family: var(--font-body);
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .download-btn:hover {
+      background: var(--emerald-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .download-btn i {
+      font-size: 1.1rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 992px) {
+      .bulletin-content .container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .archive-card {
+        order: 2;
+      }
+
+      .preview-card {
+        order: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .bulletin-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .bulletin-hero p {
+        font-size: 1rem;
+      }
+
+      .pdf-placeholder {
+        height: 380px;
+      }
+
+      .pdf-placeholder i {
+        font-size: 3rem;
+      }
+
+      .preview-frame {
+        height: 380px;
+      }
+
+      .archive-card,
+      .preview-card {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .bulletin-hero h1 {
+        font-size: 2rem;
+      }
+
+      .pdf-placeholder {
+        height: 300px;
+        padding: 20px;
+      }
+
+      .pdf-placeholder i {
+        font-size: 2.5rem;
+      }
+
+      .preview-frame {
+        height: 300px;
+      }
+
+      .bulletin-item {
+        padding: 14px 16px;
+      }
+
+      .archive-card,
+      .preview-card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <img src="img/Oasisn.png" alt="Oasis logo">
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="give.html">Give</a></li>
+      <li><a href="bulletin.html" class="active">Bulletin</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== BULLETIN HERO ===== -->
+<section class="bulletin-hero">
+  <div class="bulletin-hero-content">
+    <span class="bulletin-hero-tag">Stay Informed</span>
+    <h1>Weekly Bulletin</h1>
+    <p>Preview and download weekly church bulletins, programs, and updates.</p>
+  </div>
+</section>
+
+<!-- ===== BULLETIN CONTENT ===== -->
+<section class="bulletin-content reveal">
+  <div class="container">
+
+    <!-- ARCHIVE SIDEBAR -->
+    <div class="archive-card reveal-left">
+      <h2><i class="fas fa-archive"></i> Bulletin Archive</h2>
+
+      <div class="bulletin-item active" onclick="loadBulletin(event, 'btn/bulletin-week1.pdf')" tabindex="0" role="button" aria-label="Load January 21-27 bulletin">
+        <strong>January 21 – 27</strong>
+        <span>Latest Bulletin</span>
+        <span class="badge">New</span>
+      </div>
+
+      <div class="bulletin-item" onclick="loadBulletin(event, 'bulletin-week2.pdf')" tabindex="0" role="button" aria-label="Load January 14-20 bulletin">
+        <strong>January 14 – 20</strong>
+        <span>Previous Week</span>
+      </div>
+
+      <div class="bulletin-item" onclick="loadBulletin(event, 'btn/bulletin-week3.pdf')" tabindex="0" role="button" aria-label="Load January 7-13 bulletin">
+        <strong>January 7 – 13</strong>
+        <span>Archive</span>
+      </div>
+
+      <div class="bulletin-item" onclick="loadBulletin(event, 'btn/bulletin-week4.pdf')" tabindex="0" role="button" aria-label="Load December 31-January 6 bulletin">
+        <strong>December 31 – Jan 6</strong>
+        <span>Archive</span>
+      </div>
+    </div>
+
+    <!-- PREVIEW CARD -->
+    <div class="preview-card reveal-right">
+      <h2><i class="fas fa-book-open"></i> Bulletin Preview</h2>
+
+      <!-- Placeholder (shown when no PDF is loaded) -->
+      <div id="pdfPlaceholder" class="pdf-placeholder">
+        <i class="fas fa-file-pdf"></i>
+        <h3>Select a Bulletin</h3>
+        <p>
+          Choose a week from the archive to preview the bulletin here.
+          If you don't see a bulletin, check back later or 
+          <a href="contact.html">contact us</a>.
+        </p>
+      </div>
+
+      <!-- PDF Viewer (hidden until a PDF is selected) -->
+      <iframe
+        id="pdfPreview"
+        class="preview-frame"
+        src=""
+        title="Bulletin PDF Preview"
+        loading="lazy">
+      </iframe>
+
+      <!-- Download Button -->
+      <a
+        id="downloadLink"
+        href="#"
+        download
+        class="download-btn">
+        <i class="fas fa-download"></i> Download Bulletin
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-box">
+      <h3>Oasis of Hope Worship Centre</h3>
+      <p>
+        Raising a Kingdom of Kings and Priests.<br>
+        A place of worship, love, and transformation.
+      </p>
+    </div>
+    <div class="footer-box">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="give.html">Give</a></li>
+        <li><a href="bulletin.html">Bulletin</a></li>
+      </ul>
+    </div>
+    <div class="footer-box">
+      <h4>Service Times</h4>
+      <p>Sunday Service: 7:30 AM &amp; 9:30 AM</p>
+      <p>Midweek Service: Wednesday 6:00 PM</p>
+    </div>
+    <div class="footer-box">
+      <h4>Contact Us</h4>
+      <p>📍 Lagos, Nigeria</p>
+      <p>📞 +234 813 604 8277</p>
+      <p>✉️ info@ofhwc.org</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Oasis of Hope Worship Centre. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- ===== BULLETIN SCRIPT ===== -->
+<script>
+  function loadBulletin(event, file) {
+    const previewFrame = document.getElementById('pdfPreview');
+    const downloadLink = document.getElementById('downloadLink');
+    const placeholder = document.getElementById('pdfPlaceholder');
+
+    // Hide placeholder, show iframe + download button
+    if (placeholder) placeholder.style.display = 'none';
+    previewFrame.style.display = 'block';
+    downloadLink.style.display = 'flex';
+
+    previewFrame.src = file;
+    downloadLink.href = file;
+    downloadLink.download = file.split('/').pop();
+
+    // Update active state
+    document.querySelectorAll('.bulletin-item').forEach(item => {
+      item.classList.remove('active');
+    });
+
+    if (event && event.currentTarget) {
+      event.currentTarget.classList.add('active');
+    }
+  }
+
+  // Auto-load first bulletin on page load if PDF exists
+  document.addEventListener('DOMContentLoaded', function() {
+    const firstActive = document.querySelector('.bulletin-item.active');
+    if (firstActive) {
+      const onclickAttr = firstActive.getAttribute('onclick');
+      if (onclickAttr) {
+        const match = onclickAttr.match(/['"]([^'"]+)['"]/);
+        if (match && match[1]) {
+          // Try to load the first bulletin
+          const file = match[1];
+          fetch(file, { method: 'HEAD' })
+            .then(response => {
+              if (response.ok) {
+                // PDF exists, load it
+                loadBulletin(null, file);
+              }
+            })
+            .catch(() => {
+              // PDF doesn't exist, keep placeholder visible
+              console.log('Bulletin PDFs not found yet.');
+            });
+        }
+      }
+    }
+  });
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
